@@ -2,7 +2,7 @@ package com.mercury.beans;
 
 import java.util.List;
 
-public class TansactionInfo {
+public class TransactionInfo {
 
 	private List<Transaction> list;
 

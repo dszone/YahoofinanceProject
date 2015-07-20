@@ -6,15 +6,15 @@ public class Stock {
 	private int sid;
 	private String scode;
 	private String stockName;
-	private Set<User> buyers;
+	private Set<User> users;
 	
 	public Stock() {
-		this.buyers = new HashSet<User>();
+		this.users = new HashSet<User>();
 	}
-	public Stock(int sid, String stockName) {
+	public Stock(String stockName, String scode) {
 		this();
-		this.sid = sid;
 		this.stockName = stockName;
+		this.scode = scode;
 	}
 	public int getSid() {
 		return sid;
@@ -34,17 +34,17 @@ public class Stock {
 	public void setStockName(String stockName) {
 		this.stockName = stockName;
 	}
-	public Set<User> getBuyers() {
-		return buyers;
+	public Set<User> getUsers() {
+		return users;
 	}
-	public void setBuyers(Set<User> buyers) {
-		this.buyers = buyers;
+	public void setUsers(Set<User> users) {
+		this.users = users;
 	}
-	public void addBuyer(User buyer) {
-		buyers.add(buyer);
+	public void addUser(User user) {
+		users.add(user);
 	}
-	public void removeBuyer(User buyer) {
-		buyers.remove(buyer);
+	public void removeUser(User user) {
+		users.remove(user);
 	}
 }
 

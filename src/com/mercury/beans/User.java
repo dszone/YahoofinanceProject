@@ -10,9 +10,21 @@ public class User {
 	private BigDecimal balance;
 	private String authority;
 	private int enable;
-	//private TransactionInfo transactions;
-	//private StockInfo stocks;
+	private TransactionInfo transactions;
+	private StockInfo stocks;
 	
+	public TransactionInfo getTransactions() {
+		return transactions;
+	}
+	public void setTransactions(TransactionInfo transactions) {
+		this.transactions = transactions;
+	}
+	public StockInfo getStocks() {
+		return stocks;
+	}
+	public void setStocks(StockInfo stocks) {
+		this.stocks = stocks;
+	}
 	public User () {}
 	public User(String userName, String password) {
 		this.userName = userName;
