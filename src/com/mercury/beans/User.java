@@ -22,10 +22,10 @@ public class User {
 	private String authority;
 	private int enable;
 	private TransactionInfo transactions;
-	private Set<OwnerShip> ownerships;
+	private Set<Ownership> ownerships;
 	
 	public User () {
-		ownerships = new HashSet<OwnerShip>();
+		ownerships = new HashSet<Ownership>();
 	}
 	public User(String userName, String password) {
 		this.userName = userName;
@@ -98,10 +98,10 @@ public class User {
 		this.transactions = transactions;
 	}
 	
-	public Set<OwnerShip> getOwnerships() {
+	public Set<Ownership> getOwnerships() {
 		return ownerships;
 	}
-	public void setOwnerships(Set<OwnerShip> ownerships) {
+	public void setOwnerships(Set<Ownership> ownerships) {
 		this.ownerships = ownerships;
 	}
 	public void addOwnership(Ownership ownership) {
