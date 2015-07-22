@@ -5,6 +5,10 @@ import java.util.List;
 public class TransactionInfo {
 
 	private List<Transaction> list;
+	
+	public TransactionInfo(List<Transaction> list){
+		this.list = list;
+	}
 
 	public List<Transaction> getList() {
 		return list;
