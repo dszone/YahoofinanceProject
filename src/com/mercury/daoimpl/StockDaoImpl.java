@@ -1,6 +1,8 @@
 package com.mercury.daoimpl;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate3.HibernateTemplate;
@@ -34,5 +36,11 @@ public class StockDaoImpl implements StockDao {
 		@SuppressWarnings("unchecked")
 		List<Stock> stock = template.find(hql);
 		return stock.get(0);
+	}
+	
+	@Override
+	public Set<Stock> queryAll() {
+		String hql = "from Stock";
+		return new HashSet<Stock>(template.find(hql));
 	}
 }

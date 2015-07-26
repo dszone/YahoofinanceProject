@@ -83,5 +83,30 @@
 		</tr>
 	</table>		
 </form>
+
+<!-- Register Form -->	
+<form name="registerform" action="register.html" method="POST" id="register-form">
+	<table>
+		<tr>
+			<td>Username: </td>
+			<td><input type="text" name="r_username" id="r_username"/></td>
+		</tr>
+		<tr>
+			<td>Password: </td>
+			<td><input type="password" name="r_password" id="r_password"/></td>
+		</tr>
+		<tr>
+			<td>Email: </td>
+			<td><input type="email" name="r_email" id="r_email"/></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				<button type="reset">Clear</button>
+				<button id="signup" type="submit">Register</button>
+			</td>
+		</tr>
+	</table>		
+</form>
 </body>
 </html>

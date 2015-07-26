@@ -24,7 +24,10 @@
     	<property name="sd" ref="StockDao"/>
     	<property name="us" ref="userService"/>
     </bean>
-
+    
+    <bean id="RegisterService" class="com.mercury.services.RegisterService">
+    	<property name="userDao" ref="UserDao"/>
+    </bean>
     
 	<bean id="userService" class="com.mercury.serviceimpl.UserServiceImpl">
     	<property name="ud" ref="UserDao"/>
