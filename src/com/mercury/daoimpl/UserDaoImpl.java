@@ -1,7 +1,9 @@
 package com.mercury.daoimpl;
 
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 import org.hibernate.SessionFactory;
@@ -15,6 +17,13 @@ public class UserDaoImpl implements UserDao {
 	
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		template = new HibernateTemplate(sessionFactory);
+	}
+	
+	
+	@Override
+	public void updateUser(User user) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	@Override
@@ -42,6 +51,16 @@ public class UserDaoImpl implements UserDao {
 		List<User> users = template.find(hql);
 		return users.get(0);
 
+	}
+
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public Set<User> queryAll() {
+		// TODO Auto-generated method stub
+		
+		String hql = "from User";
+		return new HashSet<User>(template.find(hql));
 	}
 
 }

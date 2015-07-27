@@ -21,17 +21,22 @@
     
     <bean id="helloController" class="com.mercury.controller.HelloController"/>
 
+
+    <!-- Dao Injection -->
+    <bean id="transactionDao" class="com.mercury.daoimpl.TransactionDaoImpl">
+    	<property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="stockDao" class="com.mercury.daoimpl.StockDaoImpl">
+    	<property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="userDao" class="com.mercury.daoimpl.UserDaoImpl">
+    	<property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
     
-    <bean id="TransactionDao" class="com.mercury.daoimpl.TransactionDaoImpl">
-    	<property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
-    <bean id="StockDao" class="com.mercury.daoimpl.StockDaoImpl">
-    	<property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
-    <bean id="UserDao" class="com.mercury.daoimpl.UserDaoImpl">
-    	<property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
-    
+
+    <!-- Service Injection -->
+    <bean id="tranSS" class="com.mercury.services.TransactionService"/>
+    <bean id="ss" class="com.mercury.services.StockService"/>
     
     <!-- Define Daos -->
     <!--  
