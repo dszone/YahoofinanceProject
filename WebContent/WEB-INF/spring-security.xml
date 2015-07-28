@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:sec="http://www.springframework.org/schema/security"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/security
+		http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+
+	<sec:http auto-config="true" use-expressions="true">
+    	<sec:intercept-url pattern="/main*" access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER')"/>
+    	<sec:intercept-url pattern="/**" access="permitAll" />
+    	<sec:form-login 
+        	login-page="/login.html"
+        	authentication-success-handler-ref="loginSuccessfulAuthHandler"
+        	authentication-failure-url="/login.html?login_error=1" 
+        />
+        
+        <sec:logout logout-success-url="/login.html" delete-cookies="JSESSIONID"/>
+        <sec:remember-me/>
+	</sec:http>
+
+	<bean id="loginSuccessfulAuthHandler" class="com.mercury.demand.LoginSuccessfulAuthenticationHandler"/>
+	
+	<sec:authentication-manager alias="authenticationManager">
+        <sec:authentication-provider>
+        	<sec:jdbc-user-service data-source-ref="dataSource"
+		   		users-by-username-query="				
+		      		select username, password, enabled 
+		      		from users where username=?" 
+		   		authorities-by-username-query="
+		      		select username, authority 
+		      		from users where username=?" 
+			/>
+        </sec:authentication-provider>
+    </sec:authentication-manager>
+    
+    <!-- 	<sec:authentication-manager alias="authenticationManager">
+        <sec:authentication-provider>
+        	<sec:user-service>
+				<sec:user name="bowen" password="123" authorities="ROLE_ADMIN"/>	same with access="ROLE_USER"
+	    	</sec:user-service>
+        </sec:authentication-provider>
+    </sec:authentication-manager> -->	
+	
+</beans>

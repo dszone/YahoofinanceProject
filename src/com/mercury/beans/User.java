@@ -111,7 +111,7 @@ public class User {
 		this.enable = enable;
 	}
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
 	@Cascade(CascadeType.SAVE_UPDATE)
 	public Set<Ownership> getOwnerships() {
 		return ownerships;
@@ -126,7 +126,7 @@ public class User {
 		ownerships.remove(ownership);
 	}
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
 	@Cascade(CascadeType.SAVE_UPDATE)
 	public Set<Transaction> getTransactions() {
 		return transactions;

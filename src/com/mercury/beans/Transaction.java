@@ -32,12 +32,21 @@ public class Transaction {
 		this.unitprice = new BigDecimal(0);
 		this.amount = 0;
 	} 
-	public Transaction(User user, Stock stock){
-		this();
+	
+	public Transaction(int transid, User user, Stock stock, int amount,
+			BigDecimal unitprice, Timestamp timestamp) {
+		super();
+		this.transid = transid;
 		this.user = user;
 		this.stock = stock;
+		this.amount = amount;
+		this.unitprice = unitprice;
+		this.timestamp = timestamp;
 	}
-	
+	public Transaction(User user, Stock stock, Integer amount,
+			BigDecimal unitprice, Timestamp timestamp) {
+		// TODO Auto-generated constructor stub
+	}
 	@Id
 	@GeneratedValue(generator = "tran_id_gen", 
     strategy = GenerationType.SEQUENCE)

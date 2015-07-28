@@ -14,6 +14,7 @@ public class Stock {
 	private String stockName;
 	private Set<Ownership> ownerships;
 	
+
 	public Stock() {
 		ownerships = new HashSet<Ownership>();
 	}
@@ -49,6 +50,7 @@ public class Stock {
 	public void setStockName(String stockName) {
 		this.stockName = stockName;
 	}
+	
 	@OneToMany(mappedBy="stock")
 	public Set<Ownership> getOwnerships() {
 		return ownerships;
