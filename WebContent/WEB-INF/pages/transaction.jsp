@@ -34,6 +34,19 @@
 	font-family: 'Orbitron', sans-serif;
 	font-weight: 700;
 }
+
+h3 {
+	color: #27A0C4;
+	text-align:center;
+	font-family: 'Unkempt', cursive;
+	font-weight: 700;
+	letter-spacing: 1px;
+}
+
+table {
+	margin-left:auto; 
+    margin-right:auto;
+} 
 </style>
 <script>
 var module = angular.module("mainModule", []);
@@ -137,8 +150,9 @@ module.controller("ShowTransactionController",function($scope,$http){
 <div ng-controller="ShowTransactionController">
 	<h3>Transaction Submitted</h3>
 	<div class="table-responsive"> 
-		<table id="stockList" border="1" style="width: 500px" class="table table-striped table-bordered table-hover table-responsive">
+		<table id="stockList" border="1" style="width: 800px" class="table table-striped table-bordered table-hover table-responsive">
 			<tr>
+				<th>Index</th>
 				<th>Stock Name</th>
 				<th>Stock Code</th>
 				<th>Requested Price</th>
@@ -147,6 +161,7 @@ module.controller("ShowTransactionController",function($scope,$http){
 			</tr>
 	
 			<tr ng-repeat="request in requests">
+				<td>{{ $index + 1 }}</td>
 				<td>{{request.stockName}}</td>
 				<td>{{request.stockCode}}</td>
 				<td>{{request.unitprice|number : 2}}</td>

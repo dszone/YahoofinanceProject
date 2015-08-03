@@ -74,7 +74,7 @@ public class CustomerController {
 		
 
 		JSONArray ja = new JSONArray(list);
-		mav.addObject("Requests", ja.toString());
+		mav.addObject("Requests", ja);
 		System.out.println(ja);
 
 		return mav;
@@ -84,11 +84,27 @@ public class CustomerController {
 	public ModelAndView marketdataPage() {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("marketdata");
+		List<StockInfo> list = new ArrayList<StockInfo>();
+		Set<StockInfo> set = new HashSet<StockInfo>();
+		try {
+			set = ss.getInfo(ss.getAllStocks());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+
+		}
+		if (set!=null){
+			list = new ArrayList<StockInfo>(set);
+		}
+		
+		JSONArray ja = new JSONArray(list);
+		mav.addObject("Requests", ja);
+		System.out.println(ja);
 		return mav;
 	}
 
 
-	@RequestMapping("/checkStock")
+	@RequestMapping("/checkStock")//for test
 	public ModelAndView checkStock(HttpServletRequest request) {
 
 		ModelAndView mav = new ModelAndView();

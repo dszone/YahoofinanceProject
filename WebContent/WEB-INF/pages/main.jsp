@@ -32,9 +32,10 @@
 }
 h2 {
 	color: #27A0C4;
-	margin-left: 3cm;
+	text-align:center;
 	font-family: 'Unkempt', cursive;
 	font-weight: 700;
+	letter-spacing: 1px;
 }
 #tbl {
 	float: right;
@@ -61,13 +62,13 @@ h2 {
 	width:600px;
 	height:400px;
 	float: left;
-	margin-left: 4%;
+	margin-left: 3%;
 }
 #chartdiv2 {
 	width:600px;
 	height:400px;
 	float: left;
-	margin-left: 4%;
+	margin-left: 3%;
 }
 </style>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
